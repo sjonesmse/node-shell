@@ -1,6 +1,5 @@
 function prompt(text){
-  process.stdout.write('You typed: ' +  text);
-  process.stdout.write('\nprompt >')
+  return 'You typed: ' +  text
 }
 
 module.exports = prompt;

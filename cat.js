@@ -4,8 +4,7 @@ function cat(path){
   fs.readFile(path, (err, data) =>{
     if(err) throw err;
     else{
-      process.stdout.write(data);
-      process.stdout.write('\nprompt >')
+      return data;
     }
   })
 }
