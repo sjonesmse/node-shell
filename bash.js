@@ -1,8 +1,7 @@
-function done(output){
+function done(output) {
   process.stdout.write(output);
   process.stdout.write('\nprompt >');
 }
-
 
 process.stdout.write('prompt > ');
 
@@ -30,9 +29,11 @@ process.stdin.on('data', data => {
     let curl = require('./curl');
     let path = cmd.slice(5);
     curl(done, path);
+  } else if (cmd === 'date') {
+    let date = require('./date');
+    date(done);
   } else {
     let prompt = require('./prompt');
     done(prompt(cmd));
   }
 });
-
