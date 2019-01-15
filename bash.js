@@ -7,14 +7,26 @@ process.stdout.write('prompt > ');
 //   process.stdout.write('\nprompt > ');
 // });
 
+
+
 process.stdin.on('data', data => {
   const cmd = data.toString().trim();
 
   if (cmd === 'pwd') {
-    process.stdout.write(process.cwd());
-  } else {
-    process.stdout.write('You typed: ' + cmd);
+    let pwd = require('./pwd')
+    pwd();
   }
-
-  process.stdout.write('\nprompt > ');
+  else if (cmd === 'ls'){
+    let ls = require('./ls')
+    ls();
+  }
+  else if(cmd.includes('cat')){
+    let cat = require('./cat')
+    let path = cmd.slice(4)
+    cat(path);
+  }
+  else {
+    let prompt = require('./prompt')
+    prompt(cmd);
+  }
 });
